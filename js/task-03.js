@@ -30,4 +30,4 @@ const creatGallery = images.forEach((element) => {
   
 });
 
-console.log(123);
+console.log(galleryEl);
