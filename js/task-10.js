@@ -2,42 +2,41 @@ function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
 
-
 const divColections = document.querySelector('#boxes');
 const inputEl = document.querySelector('input');
-const buttonsEl = document.querySelector('button');
+const btnCreate = document.querySelector('button[data-create]');
+const btnDestroy = document.querySelector('button[data-destroy]');
 
+function createBoxes(amount) {
+  const elementsToAdd = [];
 
-inputEl.addEventListener('input', onInputChange);
+  for (let i = 1; i <= amount; i+=1) {
+    const newDiv = document.createElement('div');
 
-function onInputChange(event) {
-  
-  const numInput = Number(event.currentTarget.value);    
-    
-  buttonsEl.addEventListener('click', createBoxes);
+    newDiv.style.height = `${20 + 10 * i}px`;
+    newDiv.style.width = `${20 + 10 * i}px`;
+    newDiv.style.background = getRandomHexColor();
+    newDiv.style.border = '2px solid black';
 
-  function createBoxes(amount) {
-                   
-    for (let i = 1; i <= numInput; i += 1) {
-      const newDiv = document.createElement('div');
-    
-      newDiv.style.width = `${20 + 10 * i}px`;
-      newDiv.style.height = `${20 + 10 * i}px`;
-      newDiv.style.backgroundColor = getRandomHexColor();
-      newDiv.style.border = '2px solid black';
-      divColections.append(newDiv);    
-    }
-   
-  }
-
-  buttonsEl.nextElementSibling.addEventListener('click', destroyBoxes);
-
-  function destroyBoxes(amount) {
-   
-    for (let i = 1; i <= numInput; i += 1){
-      divColections.firstElementChild.remove();      
-    }
-    
-  }
-  
+    elementsToAdd.push(newDiv);
+ }
+  return elementsToAdd;
 }
+
+btnCreate.addEventListener('click', onInputClick);
+
+function onInputClick() {
+  let newElementsToAdd = createBoxes(inputEl.value);
+  divColections.append(...newElementsToAdd);
+}
+
+function destroyBoxes() {
+  divColections.innerHTML = '';
+}
+
+btnDestroy.addEventListener('click', offInputClick);
+
+function offInputClick() {
+  destroyBoxes.call();
+}
+
