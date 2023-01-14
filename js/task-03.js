@@ -20,6 +20,8 @@ const images = [
  
 // ulGalleryEl.insertAdjacentHTML("beforeend", creatGallery);
 
+
+
 // const itemGalleryEl = ulGalleryEl.children;
 
 // for (const elem of itemGalleryEl) {
@@ -34,31 +36,16 @@ const images = [
 const ulGalleryEl = document.querySelector('.gallery');
 
 const creatGallery = images.map((image) => {
+  const srcEl = `src = ${image.url}`;
+  const altEl = `alt = ${image.alt}`;  
 
-  const imgEl = document.createElement('img');
-  imgEl.src = image.url;
-  imgEl.alt = image.alt;
-  imgEl.width = 400; 
-  
-  console.log(imgEl);
-
-  const arrGallery = `<li>${imgEl}</li>`;
-
-  console.log(arrGallery);
-
-  return arrGallery;
-  
-
+  const stringEl = `<li><img ${srcEl}, ${altEl}, width = 300, height = 200 ></li>`;
+  return stringEl;
 }).join('');
-
+ 
 ulGalleryEl.insertAdjacentHTML("beforeend", creatGallery);
 
-// const itemGalleryEl = ulGalleryEl.children;
-
-// for (const elem of itemGalleryEl) {
-//   elem.style.listStyle = "none";
-//   elem.style.margin = "10px"; 
-//   elem.style.display = "flex"; 
-//   elem.style.outline = "5px solid #FFD700"; 
-//   elem.style.maxWidth = "400px"; 
-// }
+ulGalleryEl.style.listStyle = "none";
+ulGalleryEl.style.display = "flex"; 
+ulGalleryEl.style.gap = "10px"; 
+document.body.style.backgroundColor = "rgba(0,255,0,0.3)";
