@@ -35,17 +35,19 @@ const images = [
 
 const ulGalleryEl = document.querySelector('.gallery');
 
-const creatGallery = images.map((image) => {
-  const srcEl = `src = ${image.url}`;
-  const altEl = `alt = ${image.alt}`;  
-
-  const stringEl = `<li><img ${srcEl}, ${altEl}, width = 300, height = 200 ></li>`;
-  return stringEl;
+const creatGallery = images.map(({ url, alt }) => {
+  
+  return `<li><img class='gallery__item' src='${url}' alt='${alt}' width = 300 height = 200 ></li>`;
+  
 }).join('');
  
 ulGalleryEl.insertAdjacentHTML("beforeend", creatGallery);
+
+
 
 ulGalleryEl.style.listStyle = "none";
 ulGalleryEl.style.display = "flex"; 
 ulGalleryEl.style.gap = "10px"; 
 document.body.style.backgroundColor = "rgba(0,255,0,0.3)";
+
+
