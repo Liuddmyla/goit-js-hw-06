@@ -14,22 +14,51 @@ const images = [
 ];
 
 
+// const ulGalleryEl = document.querySelector('.gallery');
+
+// const creatGallery = images.map((image) => `<li><img src = ${image.url}, alt = "${image.alt}", width = 400 ></li>`).join('');
+ 
+// ulGalleryEl.insertAdjacentHTML("beforeend", creatGallery);
+
+// const itemGalleryEl = ulGalleryEl.children;
+
+// for (const elem of itemGalleryEl) {
+//   elem.style.listStyle = "none";
+//   elem.style.margin = "10px"; 
+//   elem.style.display = "flex"; 
+//   elem.style.outline = "5px solid #FFD700"; 
+//   elem.style.maxWidth = "400px"; 
+// }
+
+
 const ulGalleryEl = document.querySelector('.gallery');
 
-const creatGallery = images.map((image) => `<li><img src = ${image.url}, alt = "${image.alt}", width = 400 ></li>`).join('');
- 
+const creatGallery = images.map((image) => {
+
+  const imgEl = document.createElement('img');
+  imgEl.src = image.url;
+  imgEl.alt = image.alt;
+  imgEl.width = 400; 
+  
+  console.log(imgEl);
+
+  const arrGallery = `<li>${imgEl}</li>`;
+
+  console.log(arrGallery);
+
+  return arrGallery;
+  
+
+}).join('');
+
 ulGalleryEl.insertAdjacentHTML("beforeend", creatGallery);
 
+// const itemGalleryEl = ulGalleryEl.children;
 
-const itemGalleryEl = ulGalleryEl.children;
-
-for (const elem of itemGalleryEl) {
-  elem.style.listStyle = "none";
-  elem.style.margin = "10px"; 
-  elem.style.display = "flex"; 
-  elem.style.outline = "5px solid #FFD700"; 
-  elem.style.maxWidth = "400px"; 
-}
-
-
-
+// for (const elem of itemGalleryEl) {
+//   elem.style.listStyle = "none";
+//   elem.style.margin = "10px"; 
+//   elem.style.display = "flex"; 
+//   elem.style.outline = "5px solid #FFD700"; 
+//   elem.style.maxWidth = "400px"; 
+// }

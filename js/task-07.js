@@ -1,6 +1,8 @@
 const inputEl = document.querySelector('#font-size-control');
 const spanEl = document.querySelector('#text');
 
+spanEl.style.fontSize = `${Number(inputEl.value)}px`;
+
 inputEl.addEventListener('input', onInputFontSize);
 
 function onInputFontSize(event) {
@@ -9,5 +11,5 @@ function onInputFontSize(event) {
 };
 
 
-
+// додала 4 рядок :)
 
