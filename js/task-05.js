@@ -7,9 +7,9 @@ inputEl.addEventListener('input', onInputChange);
 
 function onInputChange(event) {
    
-    spanEl.textContent.trim() = event.currentTarget.value || "Anonymous";    
+    spanEl.textContent = event.currentTarget.value.trim() || "Anonymous";    
 };
 
 
 
-// додала trim() :)
+// додала trim() :). Вибачаюсь не туди додола trim()!
