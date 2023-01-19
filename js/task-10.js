@@ -31,12 +31,16 @@ function onInputClick() {
 }
 
 function destroyBoxes() {
-  divColections.innerHTML = '';
+  divColections.innerHTML = '';  
 }
 
 btnDestroy.addEventListener('click', offInputClick);
 
 function offInputClick() {
   destroyBoxes.call();
+  inputEl.value = '';
 }
 
+
+
+// додала 41 рядок, при натисненні на кнопку Destroy інпут очищається.
